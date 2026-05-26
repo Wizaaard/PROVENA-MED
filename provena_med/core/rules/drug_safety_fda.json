@@ -1,0 +1,416 @@
+{
+  "version": "0.1-fda",
+  "description": "Drug-safety rules extracted from official FDA labels via openFDA. Each rule cites its FDA set_id and retrieval date.",
+  "rules": [
+    {
+      "id": "FDA-RENAL-METFORMIN-30",
+      "category": "renal_dose",
+      "drug": "metformin",
+      "drug_class": [
+        "metformin"
+      ],
+      "egfr_lt": 30,
+      "action": "contraindicated",
+      "evidence": "4 contraindications severe renal impairment: (egfr below 30 ml/min/1.73 m 2 ) ( 4) metabolic acidosis, including diabeti",
+      "source": {
+        "db": "openFDA",
+        "set_id": "0098dec4-f0e5-45d5-8aa4-5d0faf9ab142",
+        "retrieved": "2026-05-21"
+      }
+    },
+    {
+      "id": "FDA-BOXED-METFORMIN",
+      "category": "boxed_warning",
+      "drug": "metformin",
+      "drug_class": [
+        "metformin"
+      ],
+      "action": "caution",
+      "evidence": "WARNING: LACTIC ACIDOSIS WARNING: LACTIC ACIDOSIS See full prescribing information for complete boxed warning . Postmarketing cases of metformin-associated lactic acidosis have resulted in death, hypo",
+      "source": {
+        "db": "openFDA",
+        "set_id": "0098dec4-f0e5-45d5-8aa4-5d0faf9ab142",
+        "retrieved": "2026-05-21"
+      }
+    },
+    {
+      "id": "FDA-BOXED-NAPROXEN",
+      "category": "boxed_warning",
+      "drug": "naproxen",
+      "drug_class": [
+        "nsaid"
+      ],
+      "action": "caution",
+      "evidence": "WARNING: RISK OF SERIOUS CARDIOVASCULAR AND GASTROINTESTINAL EVENTS Cardiovascular Thrombotic Events \u2022 Nonsteroidal anti-inflammatory drugs (NSAIDs) cause an increased risk of serious cardiovascular t",
+      "source": {
+        "db": "openFDA",
+        "set_id": "000155a8-709c-44e5-a75f-cd890f3a7caf",
+        "retrieved": "2026-05-21"
+      }
+    },
+    {
+      "id": "FDA-BOXED-KETOROLAC",
+      "category": "boxed_warning",
+      "drug": "ketorolac",
+      "drug_class": [
+        "nsaid"
+      ],
+      "action": "caution",
+      "evidence": "WARNING Ketorolac tromethamine, a nonsteroidal anti-inflammatory drug (NSAID), is indicated for the short-term (up to 5 days in adults) management of moderately severe acute pain that requires analges",
+      "source": {
+        "db": "openFDA",
+        "set_id": "004588ba-e109-4a53-9c9d-a42dea9bb848",
+        "retrieved": "2026-05-21"
+      }
+    },
+    {
+      "id": "FDA-BOXED-CELECOXIB",
+      "category": "boxed_warning",
+      "drug": "celecoxib",
+      "drug_class": [
+        "nsaid"
+      ],
+      "action": "caution",
+      "evidence": "WARNING: RISK OF SERIOUS CARDIOVASCULAR AND GASTRO-INTESTINAL EVENTS Cardiovascular Thrombotic Events Nonsteroidal anti-inflammatory drugs (NSAIDs) cause an increased risk of serious cardiovascular th",
+      "source": {
+        "db": "openFDA",
+        "set_id": "00e67d5e-df6f-4dfd-8c2d-a001c8a99af0",
+        "retrieved": "2026-05-21"
+      }
+    },
+    {
+      "id": "FDA-BOXED-INDOMETHACIN",
+      "category": "boxed_warning",
+      "drug": "indomethacin",
+      "drug_class": [
+        "nsaid"
+      ],
+      "action": "caution",
+      "evidence": "WARNING: RISK OF SERIOUS CARDIOVASCULAR AND GASTROINTESTINAL EVENTS WARNING: RISK OF SERIOUS CARDIOVASCULAR AND GASTROINTESTINAL EVENTS See full prescribing information for complete boxed warning. Non",
+      "source": {
+        "db": "openFDA",
+        "set_id": "009097a5-2c1e-4f5d-8054-896cf896cb3d",
+        "retrieved": "2026-05-21"
+      }
+    },
+    {
+      "id": "FDA-BOXED-LISINOPRIL",
+      "category": "boxed_warning",
+      "drug": "lisinopril",
+      "drug_class": [
+        "acei"
+      ],
+      "action": "caution",
+      "evidence": "WARNING: FETAL TOXICITY When pregnancy is detected, discontinue lisinopril and hydrochlorothiazide tablets as soon as possible. Drugs that act directly on the renin-angiotensin system can cause injury",
+      "source": {
+        "db": "openFDA",
+        "set_id": "00b266d9-ac4a-e931-e063-6294a90a6a0b",
+        "retrieved": "2026-05-21"
+      }
+    },
+    {
+      "id": "FDA-BOXED-ENALAPRIL",
+      "category": "boxed_warning",
+      "drug": "enalapril",
+      "drug_class": [
+        "acei"
+      ],
+      "action": "caution",
+      "evidence": "WARNING: FETAL TOXICITY See full prescribing information for complete boxed warning. When pregnancy is detected, discontinue enalapril maleate as soon as possible. Drugs that act directly on the renin",
+      "source": {
+        "db": "openFDA",
+        "set_id": "074fe718-88d8-365c-e063-6394a90a299d",
+        "retrieved": "2026-05-21"
+      }
+    },
+    {
+      "id": "FDA-BOXED-RAMIPRIL",
+      "category": "boxed_warning",
+      "drug": "ramipril",
+      "drug_class": [
+        "acei"
+      ],
+      "action": "caution",
+      "evidence": "WARNING: FETAL TOXICITY See full prescribing information for complete boxed warning \u2022 When pregnancy is detected, discontinue ramipril as soon as possible ( 5.6 ). \u2022 Drugs that act directly on the ren",
+      "source": {
+        "db": "openFDA",
+        "set_id": "01da05d8-e72e-4208-bf92-a5cd929f15ab",
+        "retrieved": "2026-05-21"
+      }
+    },
+    {
+      "id": "FDA-BOXED-LOSARTAN",
+      "category": "boxed_warning",
+      "drug": "losartan",
+      "drug_class": [
+        "arb"
+      ],
+      "action": "caution",
+      "evidence": "WARNING: FETAL TOXICITY When pregnancy is detected, discontinue losartan potassium as soon as possible. Drugs that act directly on the renin-angiotensin system can cause injury and death to the develo",
+      "source": {
+        "db": "openFDA",
+        "set_id": "021cd76a-b093-4704-8410-5e7d01e20a54",
+        "retrieved": "2026-05-21"
+      }
+    },
+    {
+      "id": "FDA-CONTRA-WARFARIN-PREGNANCY",
+      "category": "contraindication",
+      "drug": "warfarin",
+      "drug_class": [
+        "vka"
+      ],
+      "condition": "pregnancy",
+      "action": "contraindicated",
+      "evidence": "4 contraindications warfarin sodium is contraindicated in: pregnancy warfarin sodium is contraindicated in women who are",
+      "source": {
+        "db": "openFDA",
+        "set_id": "0cbce382-9c88-4f58-ae0f-532a841e8f95",
+        "retrieved": "2026-05-21"
+      }
+    },
+    {
+      "id": "FDA-BOXED-WARFARIN",
+      "category": "boxed_warning",
+      "drug": "warfarin",
+      "drug_class": [
+        "vka"
+      ],
+      "action": "caution",
+      "evidence": "WARNING: BLEEDING RISK Warfarin sodium can cause major or fatal bleeding [see Warnings and Precautions ( 5.1 )] . Perform regular monitoring of INR in all treated patients [see Dosage and Administrati",
+      "source": {
+        "db": "openFDA",
+        "set_id": "0cbce382-9c88-4f58-ae0f-532a841e8f95",
+        "retrieved": "2026-05-21"
+      }
+    },
+    {
+      "id": "FDA-BOXED-APIXABAN",
+      "category": "boxed_warning",
+      "drug": "apixaban",
+      "drug_class": [
+        "doac"
+      ],
+      "action": "caution",
+      "evidence": "BOXED WARNING WARNING: (A) PREMATURE DISCONTINUATION OF APIXABAN INCREASES THE RISK OF THROMBOTIC EVENTS (B) SPINAL/EPIDURAL HEMATOMA (A) PREMATURE DISCONTINUATION OF APIXABAN INCREASES THE RISK OF TH",
+      "source": {
+        "db": "openFDA",
+        "set_id": "095a08ac-cf0e-497e-a682-ddef38d6b29c",
+        "retrieved": "2026-05-21"
+      }
+    },
+    {
+      "id": "FDA-BOXED-RIVAROXABAN",
+      "category": "boxed_warning",
+      "drug": "rivaroxaban",
+      "drug_class": [
+        "doac"
+      ],
+      "action": "caution",
+      "evidence": "WARNING: (A) PREMATURE DISCONTINUATION OF XARELTO INCREASES THE RISK OF THROMBOTIC EVENTS, (B) SPINAL/EPIDURAL HEMATOMA A. Premature discontinuation of XARELTO increases the risk of thrombotic events",
+      "source": {
+        "db": "openFDA",
+        "set_id": "10db92f9-2300-4a80-836b-673e1ae91610",
+        "retrieved": "2026-05-21"
+      }
+    },
+    {
+      "id": "FDA-BOXED-OXYCODONE",
+      "category": "boxed_warning",
+      "drug": "oxycodone",
+      "drug_class": [
+        "opioid"
+      ],
+      "action": "caution",
+      "evidence": "WARNING: SERIOUS AND LIFE-THREATENING RISKS FROM USE OF OXYCODONE HYDROCHLORIDE TABLETS Addiction, Abuse, and Misuse Because the use of oxycodone hydrochloride tablets exposes patients and other users",
+      "source": {
+        "db": "openFDA",
+        "set_id": "01db4606-d49c-4b10-a78a-1cf41880a9fb",
+        "retrieved": "2026-05-21"
+      }
+    },
+    {
+      "id": "FDA-BOXED-MORPHINE",
+      "category": "boxed_warning",
+      "drug": "morphine",
+      "drug_class": [
+        "opioid"
+      ],
+      "action": "caution",
+      "evidence": "WARNING: SERIOUS AND LIFE-THREATENING RISKS FROM USE OF MORPHINE SULFATE TABLETS Addiction, Abuse, and Misuse Because the use of morphine sulfate tablets exposes patients and other users to the risks",
+      "source": {
+        "db": "openFDA",
+        "set_id": "07593aa4-f2c4-4d6e-b186-ab2a4ecaa38a",
+        "retrieved": "2026-05-21"
+      }
+    },
+    {
+      "id": "FDA-BOXED-HYDROMORPHONE",
+      "category": "boxed_warning",
+      "drug": "hydromorphone",
+      "drug_class": [
+        "opioid"
+      ],
+      "action": "caution",
+      "evidence": "WARNING: SERIOUS AND LIFE-THREATENING RISKS FROM USE OF HYDROMORPHONE HYDROCHLORIDE WARNING: SERIOUS AND LIFE-THREATENING RISKS FROM USE OF HYDROMORPHONE HYDROCHLORIDE See full prescribing information",
+      "source": {
+        "db": "openFDA",
+        "set_id": "18f6f54e-1537-4181-9d07-54ddf881a9ee",
+        "retrieved": "2026-05-21"
+      }
+    },
+    {
+      "id": "FDA-BOXED-LORAZEPAM",
+      "category": "boxed_warning",
+      "drug": "lorazepam",
+      "drug_class": [
+        "benzodiazepine"
+      ],
+      "action": "caution",
+      "evidence": "WARNING: RISKS FROM CONCOMITANT USE WITH OPIOIDS; ABUSE, MISUSE, AND ADDICTION; and DEPENDENCE AND WITHDRAWAL REACTIONS \u2022 Concomitant use of benzodiazepines and opioids may result in profound sedation",
+      "source": {
+        "db": "openFDA",
+        "set_id": "00960fbd-a5da-408b-9867-62982f20906f",
+        "retrieved": "2026-05-21"
+      }
+    },
+    {
+      "id": "FDA-BOXED-ALPRAZOLAM",
+      "category": "boxed_warning",
+      "drug": "alprazolam",
+      "drug_class": [
+        "benzodiazepine"
+      ],
+      "action": "caution",
+      "evidence": "WARNING: RISKS FROM CONCOMITANT USE WITH OPIOIDS; ABUSE, MISUSE, AND ADDICTION; and DEPENDENCE AND WITHDRAWAL REACTIONS Concomitant use of benzodiazepines and opioids may result in profound sedation,",
+      "source": {
+        "db": "openFDA",
+        "set_id": "02840ea6-e4a0-96a0-e063-6394a90a19ae",
+        "retrieved": "2026-05-21"
+      }
+    },
+    {
+      "id": "FDA-BOXED-DIAZEPAM",
+      "category": "boxed_warning",
+      "drug": "diazepam",
+      "drug_class": [
+        "benzodiazepine"
+      ],
+      "action": "caution",
+      "evidence": "WARNING: RISKS FROM CONCOMITANT USE WITH OPIOIDS; ABUSE, MISUSE, AND ADDICTION; and DEPENDENCE AND WITHDRAWAL REACTIONS \u2022 Concomitant use of benzodiazepines and opioids may result in profound sedation",
+      "source": {
+        "db": "openFDA",
+        "set_id": "01f04ee4-fff9-499a-8213-984e16368084",
+        "retrieved": "2026-05-21"
+      }
+    },
+    {
+      "id": "FDA-RENAL-NITROFURANTOIN-60",
+      "category": "renal_dose",
+      "drug": "nitrofurantoin",
+      "drug_class": [
+        "nitrofurantoin"
+      ],
+      "egfr_lt": 60,
+      "action": "contraindicated",
+      "evidence": "ria, oliguria, or significant impairment of renal function (creatinine clearance under 60 ml per minute or clinically si",
+      "source": {
+        "db": "openFDA",
+        "set_id": "04af8b73-7e15-7da8-e063-6294a90af284",
+        "retrieved": "2026-05-21"
+      }
+    },
+    {
+      "id": "FDA-CONTRA-NITROFURANTOIN-PREGNANCY",
+      "category": "contraindication",
+      "drug": "nitrofurantoin",
+      "drug_class": [
+        "nitrofurantoin"
+      ],
+      "condition": "pregnancy",
+      "action": "contraindicated",
+      "evidence": "excretion of the drug [see warnings and precautions (5.4)]. pregnant patients at term (38 weeks to 42 weeks gestation),",
+      "source": {
+        "db": "openFDA",
+        "set_id": "04af8b73-7e15-7da8-e063-6294a90af284",
+        "retrieved": "2026-05-21"
+      }
+    },
+    {
+      "id": "FDA-CONTRA-METHOTREXATE-PREGNANCY",
+      "category": "contraindication",
+      "drug": "methotrexate",
+      "drug_class": [
+        "methotrexate"
+      ],
+      "condition": "pregnancy",
+      "action": "contraindicated",
+      "evidence": "aindications methotrexate tablets are contraindicated in: \u2022 pregnant women receiving methotrexate tablets for treatment",
+      "source": {
+        "db": "openFDA",
+        "set_id": "04a95db9-a124-4b97-bd71-1c37a6b3b0c8",
+        "retrieved": "2026-05-21"
+      }
+    },
+    {
+      "id": "FDA-BOXED-METHOTREXATE",
+      "category": "boxed_warning",
+      "drug": "methotrexate",
+      "drug_class": [
+        "methotrexate"
+      ],
+      "action": "caution",
+      "evidence": "WARNING: EMBRYO-FETAL TOXICITY, HYPERSENSITIVITY REACTIONS, and SEVERE ADVERSE REACTIONS \u2022 Methotrexate tablets can cause embryo-fetal toxicity, including fetal death. For non-neoplastic diseases, met",
+      "source": {
+        "db": "openFDA",
+        "set_id": "04a95db9-a124-4b97-bd71-1c37a6b3b0c8",
+        "retrieved": "2026-05-21"
+      }
+    },
+    {
+      "id": "FDA-BOXED-METOCLOPRAMIDE",
+      "category": "boxed_warning",
+      "drug": "metoclopramide",
+      "drug_class": [
+        "metoclopramide"
+      ],
+      "action": "caution",
+      "evidence": "WARNING: TARDIVE DYSKINESIA Treatment with metoclopramide can cause tardive dyskinesia, a serious movement disorder that is often irreversible. The risk of developing tardive dyskinesia increases with",
+      "source": {
+        "db": "openFDA",
+        "set_id": "0034a97a-fb05-418a-a234-de278907cd2a",
+        "retrieved": "2026-05-21"
+      }
+    },
+    {
+      "id": "FDA-BOXED-FLUOXETINE",
+      "category": "boxed_warning",
+      "drug": "fluoxetine",
+      "drug_class": [
+        "ssri"
+      ],
+      "action": "caution",
+      "evidence": "WARNING: SUICIDAL THOUGHTS AND BEHAVIORS Antidepressants increased the risk of suicidal thoughts and behavior in children, adolescents, and young adults in short-term studies. These studies did not sh",
+      "source": {
+        "db": "openFDA",
+        "set_id": "02283de9-6087-45f7-a9ce-3b082ce860de",
+        "retrieved": "2026-05-21"
+      }
+    },
+    {
+      "id": "FDA-BOXED-SERTRALINE",
+      "category": "boxed_warning",
+      "drug": "sertraline",
+      "drug_class": [
+        "ssri"
+      ],
+      "action": "caution",
+      "evidence": "BOXED WARNING Suicidality and Antidepressant Drugs Antidepressants increased the risk compared to placebo of suicidal thinking and behavior (suicidality) in children, adolescents, and young adults in",
+      "source": {
+        "db": "openFDA",
+        "set_id": "00179766-980b-44b0-99d3-1fee2bb27e37",
+        "retrieved": "2026-05-21"
+      }
+    }
+  ]
+}

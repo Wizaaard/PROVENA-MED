@@ -1,0 +1,35 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+*.egg
+build/
+dist/
+.venv/
+.env
+
+# IDE
+.vscode/
+.idea/
+
+# OS
+.DS_Store
+
+# Materialized data and run artifacts (never committed)
+data/
+outputs/
+logs/
+*.jsonl
+*.pkl
+*.parquet
+!examples/**/*.jsonl
+!provena_med/data/rules/*.jsonl
+!provena_med/data/rules/*.json
+
+# Local model + cache directories
+hf_cache/
+.hf_cache/
+models/
+
+# Notebooks
+.ipynb_checkpoints/
