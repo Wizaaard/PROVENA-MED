@@ -16,15 +16,15 @@ dist/
 .DS_Store
 
 # Materialized data and run artifacts (never committed)
-data/
-outputs/
-logs/
+/data/
+/outputs/
+/logs/
 *.jsonl
 *.pkl
 *.parquet
 !examples/**/*.jsonl
-!provena_med/data/rules/*.jsonl
-!provena_med/data/rules/*.json
+!provena_med/core/rules/*.jsonl
+!provena_med/core/rules/*.json
 
 # Local model + cache directories
 hf_cache/
@@ -33,3 +33,4 @@ models/
 
 # Notebooks
 .ipynb_checkpoints/
+*.pdf
