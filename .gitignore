@@ -21,6 +21,7 @@ dist/
 /data/
 /outputs/
 /logs/
+/scripts/
 *.log
 *.out
 *.err
