@@ -33,20 +33,19 @@ configs:
 
 # PROVENA-MED
 
-A clinician-free, **evaluation-only** benchmark for **provenance-faithful**,
-multimodal clinical reasoning over linked EHR data, clinical notes, and chest
-radiographs. Models produce a staged clinical artifact (problem list -> differential
--> workup -> therapy -> monitoring) in which every claim must cite typed evidence
-units. Scoring is fully automatic: we verify whether each citation is *valid* (the
-cited ID exists in the bundle), *supported* (judged by a held-out LLM), and
-*causally used* by the model (via attention knockout on open-weight systems),
-alongside diagnostic accuracy, drug safety, and interactive evidence-seeking
-efficiency.
+A **evaluation-only** benchmark for **provenance-faithful**, multimodal clinical
+reasoning over linked EHR data, clinical notes, and chest radiographs. Models produce
+a staged clinical artifact (problem list -> differential -> workup -> therapy ->
+monitoring) in which every claim must cite typed evidence units. Scoring verifies
+whether each citation is *valid* (the cited ID exists in the bundle), *supported*
+(judged by a held-out LLM), and *causally used* by the model (via attention knockout
+on open-weight systems), alongside diagnostic accuracy, drug safety, and interactive
+evidence-seeking efficiency.
 
-> **No new clinician annotation is used.** Gold is triangulated from pre-existing
-> billed codes, structured clinical facts, deterministic guideline rules, and
-> counterfactual provenance tests, so the benchmark scales with cohorts without
-> annotation cost.
+> **The current benchmark adds no task-specific clinician annotation.** Instead, it
+> triangulates gold from pre-existing billed codes, structured clinical facts,
+> deterministic guideline rules, and counterfactual provenance tests. This scalable
+> construction complements, rather than replaces, clinician-led evaluation and review.
 
 ---
 
