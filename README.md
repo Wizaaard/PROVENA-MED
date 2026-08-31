@@ -1,4 +1,4 @@
----
+<!-- ---
 license: mit
 task_categories:
   - question-answering
@@ -29,7 +29,7 @@ configs:
     description: eICU-CRD external (structured; different health system).
   - config_name: mimic3
     description: MIMIC-III external (ICD-9 era; older platform).
----
+--- -->
 
 # PROVENA-MED
 
@@ -67,12 +67,9 @@ Everything in steps 2-4 is deterministic and reproducible from the released code
 The frozen 12,000-encounter evaluation split is content-hashed (see
 `provena_med/data/eval_split.py`), so different users build byte-identical bundles.
 
-## Dataset availability
+## Dataset
 
 The Hugging Face dataset page is [provena-med/provena-med](https://huggingface.co/datasets/provena-med/provena-med).
-It is currently a metadata and release placeholder: no patient-level data, cohort bundles,
-or experiment outputs are distributed there. A public data release will be considered only
-after the source-data licenses and redistribution rights have been confirmed.
 
 ---
 
@@ -208,5 +205,6 @@ If you use PROVENA-MED, please cite:
 ## License
 
 Code in this repository is released under the MIT License (see `LICENSE`).
-Data is **not** included; the underlying clinical resources are credentialed and
-remain under the PhysioNet data use agreement.
+Any dataset materials are subject to the applicable license and access terms of their
+underlying sources, including the PhysioNet data use agreements for MIMIC and eICU-derived
+materials. This repository does not grant rights beyond those source terms.
