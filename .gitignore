@@ -7,6 +7,8 @@ build/
 dist/
 .venv/
 .env
+.pytest_cache/
+.ruff_cache/
 
 # IDE
 .vscode/
@@ -19,6 +21,9 @@ dist/
 /data/
 /outputs/
 /logs/
+*.log
+*.out
+*.err
 *.jsonl
 *.pkl
 *.parquet

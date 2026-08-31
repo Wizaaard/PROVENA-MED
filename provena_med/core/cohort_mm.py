@@ -7,10 +7,12 @@ from __future__ import annotations
 
 from pathlib import Path
 
+from provena_med import DATA_ROOT
+
 import pandas as pd
 
 CARDIAC = Path(
-    "<DATA_ROOT>/Datasets/MIMIC-IV/mimic-iv-ext-cardiac-disease/1.0.0"
+    str(DATA_ROOT / "Datasets/MIMIC-IV/mimic-iv-ext-cardiac-disease/1.0.0")
 )
 IMG_COLS = ["X-ray", "CT", "Ultrasound", "MRI", "ECG", "CATH"]
 

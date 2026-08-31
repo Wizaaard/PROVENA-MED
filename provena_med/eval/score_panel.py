@@ -33,7 +33,9 @@ def main():
         files = sorted({f for ch in args.cohort.split(",")
                         for f in glob.glob(f"outputs/staged_prov_{ch}_*.jsonl")})
     if not files:
-        print("no files match", pat); return
+        pattern = args.glob or f"outputs/staged_prov_{args.cohort}_*.jsonl"
+        print(f"no files match {pattern}")
+        return
     judge = LLMJudge()
     rows = []
     hdr = (f"{'cohort':11}{'model':13}{'parsed':>7}{'valid':>6}{'MM-AIS':>7}"

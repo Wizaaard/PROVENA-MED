@@ -59,12 +59,20 @@ benchmark you must:
 
 1. Obtain PhysioNet credentialed access to each underlying dataset.
 2. Clone this repository and `pip install -e .` (or `pip install provena-med`).
-3. Run the local build pipeline against your PhysioNet data paths.
+3. Set `PROVENA_DATA_ROOT` to the directory containing `Datasets/` and
+   `PROVENA-MED/`, then run the local build pipeline against your PhysioNet data.
 4. Run the evaluation harness against your models of choice.
 
 Everything in steps 2-4 is deterministic and reproducible from the released code.
 The frozen 12,000-encounter evaluation split is content-hashed (see
 `provena_med/data/eval_split.py`), so different users build byte-identical bundles.
+
+## Dataset availability
+
+The Hugging Face dataset page is [provena-med/provena-med](https://huggingface.co/datasets/provena-med/provena-med).
+It is currently a metadata and release placeholder: no patient-level data, cohort bundles,
+or experiment outputs are distributed there. A public data release will be considered only
+after the source-data licenses and redistribution rights have been confirmed.
 
 ---
 
@@ -104,8 +112,7 @@ cite *by exact ID*:
 
 ## What this benchmark measures
 
-A single **consolidated leaderboard** (`provena-med leaderboard`) reports per
-model:
+The released task-specific scorers report the following metrics per model:
 
 | axis                      | metric(s)                                            | what it asks                                                                 |
 |---------------------------|------------------------------------------------------|------------------------------------------------------------------------------|
@@ -131,27 +138,28 @@ fully-revealed record (`provena-med eval interactive`).
 # 1. Install
 pip install -e .
 
-# 2. Build one cohort (requires PhysioNet data paths)
-provena-med build \
-  --cohort ed \
+# 2. Point the package at your credentialed local data.
+export PROVENA_DATA_ROOT=/path/to/data-root
+
+# 3. Build one cohort (requires PhysioNet data paths)
+provena-med build ed_cardiac \
   --mimic-iv-ed-cds /path/to/mimic-iv-ext-cds \
+  --mimic-iv-cardiac /path/to/mimic-iv-ext-cardiac \
   --out ./data
 
 # 3. Run a model end-to-end on a small slice
-provena-med generate \
-  --task staged \
+provena-med generate staged \
+  --provena \
   --cohort ed \
   --model meta-llama/Llama-3.1-8B-Instruct \
   --n 30 \
   --out ./outputs/staged_ed_llama31_8b.jsonl
 
 # 4. Score it (W axis, with the held-out LLM judge)
-provena-med eval \
-  --axis w \
-  --in ./outputs/staged_ed_llama31_8b.jsonl \
-  --judge meta-llama/Llama-3.3-70B-Instruct
+provena-med eval w \
+  --in ./outputs/staged_ed_llama31_8b.jsonl
 
-# 5. Once you have results for several models, aggregate
+# 5. Aggregate released scorer JSONL outputs once all task-specific scorers have run.
 provena-med leaderboard --in ./outputs --out leaderboard.json
 ```
 

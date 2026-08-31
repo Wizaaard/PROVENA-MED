@@ -16,10 +16,14 @@ from __future__ import annotations
 
 import argparse
 import importlib
+import json
 import os
 import sys
+from collections import defaultdict
+from pathlib import Path
+from statistics import fmean
 
-from provena_med import __version__
+from provena_med import __version__, require_data_root
 
 # verb -> noun -> dotted module path (module must expose main())
 SUBCOMMANDS: dict[str, dict[str, str]] = {
@@ -78,18 +82,54 @@ def _print_info() -> None:
 
 
 def _leaderboard(argv: list[str]) -> int:
-    """Stub for the leaderboard aggregator. The released code consumes the JSONL outputs of
-    the panel runs and emits a single CSV/JSON row per model. We dispatch to score_panel
-    for the W aggregate, score_dx_panel for Hit@k, and provena_med.eval.panel_judge for
-    the W x M cells; combining them into one leaderboard.json is straightforward and is
-    the subject of ``scripts/aggregate_leaderboard.py`` (see docs/REPRODUCE.md)."""
-    print("provena-med leaderboard: see docs/REPRODUCE.md for the panel aggregation script.")
-    print("Quick recipe (after running the full panel via scripts/launch_*.sh):")
-    print("  python -m provena_med.eval.score_panel --in outputs/ --out panel_w.jsonl")
-    print("  python -m provena_med.eval.score_dx_panel --in 'outputs/dx_*.jsonl' \\")
-    print("        --out panel_dx.jsonl")
-    print("  python -m provena_med.eval.panel_judge --cohort cardiac_mm \\")
-    print("        --ids gemma3_27b medgemma_27b ...  # populates W x M")
+    """Aggregate task-specific scorer JSONL files into one row per model."""
+    parser = argparse.ArgumentParser(prog="provena-med leaderboard")
+    parser.add_argument("--in", dest="input_dir", default="outputs",
+                        help="directory containing scorer JSONL outputs")
+    parser.add_argument("--out", default="leaderboard.json",
+                        help="JSON file to write")
+    args = parser.parse_args(argv)
+
+    input_dir = Path(args.input_dir)
+    patterns = ("panel_scores*.jsonl", "dx_panel*.jsonl", "causalW_panel*.jsonl",
+                "quadrants*.jsonl")
+    files = sorted({path for pattern in patterns for path in input_dir.glob(pattern)})
+    if not files:
+        print(f"no scorer JSONL files found in {input_dir}", file=sys.stderr)
+        return 2
+
+    metrics: dict[str, dict[str, list[float]]] = defaultdict(lambda: defaultdict(list))
+
+    def add_numeric(model: str, prefix: str, value) -> None:
+        if isinstance(value, bool):
+            return
+        if isinstance(value, (int, float)):
+            metrics[model][prefix].append(float(value))
+        elif isinstance(value, dict):
+            for key, nested in value.items():
+                add_numeric(model, f"{prefix}.{key}", nested)
+
+    for path in files:
+        prefix = path.stem
+        for line_no, line in enumerate(path.read_text().splitlines(), start=1):
+            if not line.strip():
+                continue
+            record = json.loads(line)
+            model = record.get("model")
+            if not isinstance(model, str) or not model:
+                print(f"skipping {path}:{line_no}: no model field", file=sys.stderr)
+                continue
+            for key, value in record.items():
+                if key not in {"model", "cohort", "n", "parsed", "n_salient"}:
+                    add_numeric(model, f"{prefix}.{key}", value)
+
+    rows = [{"model": model,
+             "metrics": {key: fmean(values) for key, values in sorted(values_by_key.items())}}
+            for model, values_by_key in sorted(metrics.items())]
+    output = Path(args.out)
+    output.parent.mkdir(parents=True, exist_ok=True)
+    output.write_text(json.dumps(rows, indent=2) + "\n")
+    print(f"wrote {len(rows)} model rows from {len(files)} scorer files -> {output}")
     return 0
 
 
@@ -124,6 +164,13 @@ def main(argv: list[str] | None = None) -> int:
         print(f"unknown {verb} target: {noun!r}; expected one of {sorted(nouns)}",
               file=sys.stderr)
         return 2
+
+    if verb in {"build", "generate"} and not any(flag in argv for flag in ("-h", "--help")):
+        try:
+            require_data_root()
+        except RuntimeError as exc:
+            print(exc, file=sys.stderr)
+            return 2
 
     # Hand off to the underlying runner. Many runners use argparse on sys.argv directly,
     # so we splice argv[1:] in front of theirs.

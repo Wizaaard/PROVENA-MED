@@ -20,12 +20,14 @@ import re
 import sys
 from pathlib import Path
 
+from provena_med import DATA_ROOT
+
 import pandas as pd
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 from provena_med.core.bundle import extract_image_findings  # noqa: E402
 
-T = Path("<DATA_ROOT>/Datasets/MIMIC-III/mimiciii/1.4")
+T = DATA_ROOT / "Datasets/MIMIC-III/mimiciii/1.4"
 WINDOW_H = 24
 LAB_ITEMS = {50912: "creatinine", 50971: "potassium", 50983: "sodium", 50902: "chloride",
              50882: "bicarbonate", 51006: "bun", 50931: "glucose", 50960: "magnesium",

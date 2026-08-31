@@ -49,15 +49,15 @@ dev = [
 provena-med = "provena_med.cli:main"
 
 [project.urls]
-"Source"        = "https://huggingface.co/datasets/anonymous/provena-med"
-"Issue Tracker" = "https://huggingface.co/datasets/anonymous/provena-med/discussions"
+"Source"        = "https://huggingface.co/datasets/provena-med/provena-med"
+"Issue Tracker" = "https://huggingface.co/datasets/provena-med/provena-med/discussions"
 
 [tool.setuptools.packages.find]
 include = ["provena_med*"]
 exclude = ["examples*", "scripts*", "docs*", "tests*"]
 
 [tool.setuptools.package-data]
-"provena_med" = ["data/rules/*.json", "data/rules/*.jsonl", "tasks/templates/*.txt"]
+"provena_med" = ["core/rules/*.json", "core/rules/*.jsonl", "core/rules/*.txt", "tasks/templates/*.txt"]
 
 [tool.ruff]
 line-length = 100

@@ -13,11 +13,13 @@ import shutil
 import sys
 from pathlib import Path
 
+from provena_med import DATA_ROOT
+
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 from provena_med.core.bundle import (build_bundle, build_bundle_eicu, build_bundle_icu,  # noqa: E402
                             build_bundle_mimic3, build_bundle_mm)
 
-ROOT = Path("<DATA_ROOT>/PROVENA-MED")
+ROOT = DATA_ROOT / "PROVENA-MED"
 CODE_OUT = Path(__file__).resolve().parent / "outputs"
 
 

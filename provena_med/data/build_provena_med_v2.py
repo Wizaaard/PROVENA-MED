@@ -15,6 +15,8 @@ import json
 import sys
 from pathlib import Path
 
+from provena_med import DATA_ROOT
+
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 from provena_med.core import normalize, safety  # noqa: E402
 from provena_med.core.bundle import (build_bundle, build_bundle_eicu, build_bundle_icu,  # noqa: E402
@@ -22,7 +24,7 @@ from provena_med.core.bundle import (build_bundle, build_bundle_eicu, build_bund
 from provena_med.core.guidelines import load_catalog, relevant_units  # noqa: E402
 from provena_med.core.reveal import build_reveal  # noqa: E402
 
-ROOT = Path("<DATA_ROOT>/PROVENA-MED")
+ROOT = DATA_ROOT / "PROVENA-MED"
 CODE_OUT = Path(__file__).resolve().parent / "outputs"
 
 BUILDERS = {

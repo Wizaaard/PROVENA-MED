@@ -9,12 +9,14 @@ from __future__ import annotations
 
 from pathlib import Path
 
+from provena_med import DATA_ROOT
+
 import pandas as pd
 
 from provena_med.core.cxr_image import dicom_full_path
 
-CARDIAC = Path("<DATA_ROOT>/Datasets/MIMIC-IV/mimic-iv-ext-cardiac-disease/1.0.0")
-CXR = Path("<DATA_ROOT>/Datasets/MIMIC-IV/mimic-cxr/2.1.0")
+CARDIAC = DATA_ROOT / "Datasets/MIMIC-IV/mimic-iv-ext-cardiac-disease/1.0.0"
+CXR = DATA_ROOT / "Datasets/MIMIC-IV/mimic-cxr/2.1.0"
 IMG_COLS = ["X-ray", "CT", "Ultrasound", "MRI", "ECG", "CATH"]
 
 

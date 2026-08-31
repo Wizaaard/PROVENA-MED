@@ -22,6 +22,8 @@ import json
 import sys
 from pathlib import Path
 
+from provena_med import DATA_ROOT
+
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 from provena_med.core.bundle import (  # noqa: E402
     build_bundle, build_bundle_cxr_pixel, build_bundle_eicu, build_bundle_icu,
@@ -29,7 +31,7 @@ from provena_med.core.bundle import (  # noqa: E402
 from provena_med.core.edcds import _parse_dx_field  # noqa: E402
 from provena_med.core.guidelines import load_catalog  # noqa: E402
 
-PROVENA_DIR = Path("<DATA_ROOT>/PROVENA-MED/v0.2/cohorts")
+PROVENA_DIR = DATA_ROOT / "PROVENA-MED/v0.2/cohorts"
 _CATALOG: dict | None = None
 
 

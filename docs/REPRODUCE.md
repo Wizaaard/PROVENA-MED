@@ -27,6 +27,9 @@ git clone <this-repo>
 cd provena-med
 python -m venv .venv && source .venv/bin/activate
 pip install -e ".[vision]"   # vision/ for the DICOM pixel pipeline; omit if text-only
+
+# Directory containing your local, credentialed Datasets/ and PROVENA-MED/ trees.
+export PROVENA_DATA_ROOT=/path/to/data-root
 ```
 
 ## 1. Build the five cohorts
@@ -156,15 +159,14 @@ provena-med eval wxm \
 
 ## 6. Aggregate to one leaderboard row per model
 
-After all scorers have run, aggregate the panel outputs:
+After all scorers have run, aggregate the task-specific JSONL outputs:
 
 ```bash
 provena-med leaderboard --in outputs/ --out leaderboard.json
 ```
 
-The leaderboard JSON matches the columns of Table 1 in the paper. The same
-script also emits the latex source of the table for direct paste into the
-manuscript.
+The exported JSON contains one row per model, with metrics averaged across all
+available cohort-level scorer rows. It does not emit LaTeX.
 
 ## Smoke test (no PhysioNet, no GPU)
 

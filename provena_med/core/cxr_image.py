@@ -4,14 +4,21 @@ from __future__ import annotations
 from functools import lru_cache
 
 import numpy as np
-import pydicom
-from PIL import Image
 
-CXR_ROOT = "<DATA_ROOT>/Datasets/MIMIC-IV/mimic-cxr/2.1.0"
+from provena_med import DATA_ROOT
+
+CXR_ROOT = str(DATA_ROOT / "Datasets/MIMIC-IV/mimic-cxr/2.1.0")
 
 
 @lru_cache(maxsize=4096)
 def load_dicom_image(path: str, size: int = 896) -> Image.Image:
+    try:
+        import pydicom
+        from PIL import Image
+    except ImportError as exc:
+        raise RuntimeError(
+            "DICOM image support requires the vision dependencies: pip install 'provena-med[vision]'"
+        ) from exc
     ds = pydicom.dcmread(path)
     a = ds.pixel_array.astype(np.float32)
     a = (a - a.min()) / (np.ptp(a) + 1e-6)

@@ -14,7 +14,9 @@ import json
 import random
 from pathlib import Path
 
-PM = Path("<DATA_ROOT>/PROVENA-MED")
+from provena_med import DATA_ROOT
+
+PM = DATA_ROOT / "PROVENA-MED"
 SRC = PM / "v0.2" / "cohorts"
 OUT = PM / "eval_split"
 COHORTS = ["ed", "cardiac_mm", "icu_mm", "eicu", "mimic3"]

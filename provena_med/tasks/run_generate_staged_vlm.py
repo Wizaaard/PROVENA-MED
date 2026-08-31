@@ -17,6 +17,8 @@ import json
 import sys
 from pathlib import Path
 
+from provena_med import DATA_ROOT
+
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 from provena_med.tasks.run_generate_staged import PERSONA, build_messages, load_provena  # noqa: E402
 from provena_med.core.cxr_image import load_dicom_image  # noqa: E402
@@ -40,7 +42,7 @@ def main() -> None:
     # need dicom_path per case for the pixel condition -> map from the cohort cache
     dicom = {}
     if args.image:
-        src = Path("<DATA_ROOT>/PROVENA-MED/v0.2/cohorts") / f"{args.cohort}.jsonl"
+        src = DATA_ROOT / "PROVENA-MED/v0.2/cohorts" / f"{args.cohort}.jsonl"
         for line in open(src):
             r = json.loads(line)
             dicom[int(r["id"])] = r.get("dicom_path", "")

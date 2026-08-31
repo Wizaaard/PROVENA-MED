@@ -18,12 +18,14 @@ import re
 import sys
 from pathlib import Path
 
+from provena_med import DATA_ROOT
+
 import pandas as pd
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 from provena_med.core.bigtable import awk_filter, write_ids  # noqa: E402
 
-E = Path("<DATA_ROOT>/Datasets/eICU/eicu-crd/2.0")
+E = DATA_ROOT / "Datasets/eICU/eicu-crd/2.0"
 WIN_LO, WIN_HI = -720, 1440  # minutes
 
 ELAB = {"creatinine": "creatinine", "potassium": "potassium", "sodium": "sodium",

@@ -9,10 +9,12 @@ import ast
 import re
 from pathlib import Path
 
+from provena_med import DATA_ROOT
+
 import pandas as pd
 
 EDCDS_DIR = Path(
-    "<DATA_ROOT>/Datasets/MIMIC-IV/mimic-iv-ext-cds/1.0.2"
+    str(DATA_ROOT / "Datasets/MIMIC-IV/mimic-iv-ext-cds/1.0.2")
 )
 
 

@@ -13,14 +13,16 @@ import json
 import sys
 from pathlib import Path
 
+from provena_med import DATA_ROOT
+
 import pandas as pd
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 from provena_med.data.build_icu_cohort import LAB_ITEMS  # noqa: E402  (shared curated itemids)
 from provena_med.core.bigtable import awk_filter, write_ids  # noqa: E402
 
-MC = Path("<DATA_ROOT>/Datasets/MIMIC-IV/mimiciv/3.1")
-PM = Path("<DATA_ROOT>/PROVENA-MED")
+MC = DATA_ROOT / "Datasets/MIMIC-IV/mimiciv/3.1"
+PM = DATA_ROOT / "PROVENA-MED"
 WINDOW_H = 24
 
 

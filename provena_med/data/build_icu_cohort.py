@@ -22,12 +22,14 @@ import subprocess
 import sys
 from pathlib import Path
 
+from provena_med import DATA_ROOT
+
 import pandas as pd
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 from provena_med.core.cxr_image import dicom_full_path  # noqa: E402
 
-M = Path("<DATA_ROOT>/Datasets/MIMIC-IV")
+M = DATA_ROOT / "Datasets/MIMIC-IV"
 MC = M / "mimiciv/3.1"
 NOTE = M / "mimic-iv-note/2.2/note/discharge.csv.gz"
 CXR_REC = M / "mimic-cxr/2.1.0/cxr-record-list.csv.gz"

@@ -15,10 +15,12 @@ import os
 import sys
 from pathlib import Path
 
+from provena_med import DATA_ROOT
+
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 from provena_med.core.bundle import extract_image_findings  # noqa: E402
 
-PM = Path("<DATA_ROOT>/PROVENA-MED")
+PM = DATA_ROOT / "PROVENA-MED"
 
 
 def report_path(dicom_path: str) -> str:

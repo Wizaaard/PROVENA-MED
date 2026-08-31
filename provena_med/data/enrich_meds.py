@@ -16,17 +16,19 @@ import re
 import sys
 from pathlib import Path
 
+from provena_med import DATA_ROOT
+
 import pandas as pd
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 from provena_med.core.safety import _allergy, _med_tokens  # noqa: E402
 
-PM = Path("<DATA_ROOT>/PROVENA-MED")
-MIV = Path("<DATA_ROOT>/Datasets/MIMIC-IV")
+PM = DATA_ROOT / "PROVENA-MED"
+MIV = DATA_ROOT / "Datasets/MIMIC-IV"
 ED = MIV / "mimic-iv-ed/2.2/ed"
 NOTE = MIV / "mimic-iv-note/2.2/note/discharge.csv.gz"
-M3 = Path("<DATA_ROOT>/Datasets/MIMIC-III/mimiciii/1.4")
-E = Path("<DATA_ROOT>/Datasets/eICU/eicu-crd/2.0")
+M3 = DATA_ROOT / "Datasets/MIMIC-III/mimiciii/1.4"
+E = DATA_ROOT / "Datasets/eICU/eicu-crd/2.0"
 
 MED_SECTION = re.compile(r"Medications on Admission:?\s*(.*?)(?:\n\s*\n|Discharge Medications|"
                          r"Discharge Disposition|Discharge Condition|Facility:)", re.S | re.I)

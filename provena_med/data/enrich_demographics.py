@@ -11,12 +11,14 @@ import json
 import re
 from pathlib import Path
 
+from provena_med import DATA_ROOT
+
 import pandas as pd
 
-ROOT = Path("<DATA_ROOT>/PROVENA-MED/cohorts")
-M4 = Path("<DATA_ROOT>/Datasets/MIMIC-IV/mimiciv/3.1")
-CARD = Path("<DATA_ROOT>/Datasets/MIMIC-IV/mimic-iv-ext-cardiac-disease/1.0.0")
-M3 = Path("<DATA_ROOT>/Datasets/MIMIC-III/mimiciii/1.4")
+ROOT = DATA_ROOT / "PROVENA-MED/cohorts"
+M4 = DATA_ROOT / "Datasets/MIMIC-IV/mimiciv/3.1"
+CARD = DATA_ROOT / "Datasets/MIMIC-IV/mimic-iv-ext-cardiac-disease/1.0.0"
+M3 = DATA_ROOT / "Datasets/MIMIC-III/mimiciii/1.4"
 
 
 def _rewrite(cohort: str, age_of, sex_of):
